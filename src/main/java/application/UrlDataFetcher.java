@@ -54,14 +54,19 @@ public class UrlDataFetcher {
         List<String> parallelList=new ArrayList<>();
 
         for (int i = 0; i < areas.size(); i++) {
-            parallelList.add(areas.get(i));
+//            parallelList.add(areas.get(i));
+            String areaName = areas.get(i);
+            String areaLink = areasToLink.get(areaName);
+            downloadPageData(areaName, areaLink);
+            moveDownloadedPageData(areaName);
         }
 
-        parallelList.parallelStream().forEach((areaName) -> {
-                String areaLink = areasToLink.get(areaName);
-                downloadPageData(areaName, areaLink);
-                moveDownloadedPageData(areaName);
-        });
+
+//        parallelList.parallelStream().forEach((areaName) -> {
+//                String areaLink = areasToLink.get(areaName);
+//                downloadPageData(areaName, areaLink);
+//                moveDownloadedPageData(areaName);
+//        });
 
     }
 

@@ -39,7 +39,12 @@ public class Main {
                 ApartmentUrlBuilder apartmentUrlBuilder = ApartmentUrlBuilder.newInstance();
                 EmailSender emailSender = EmailSender.newInstance();
 
-//        urlDataFetcher.downloadApartments();
+                urlDataFetcher.downloadApartments();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 List<Apartment> apartments = apartmentParser.parseApartments(startDate);
                 List<String> apartmentsUrl = apartmentUrlBuilder.buildApartmentsUrl(apartments);
                 emailSender.sendEmail(apartmentsUrl);
@@ -47,8 +52,8 @@ public class Main {
             }
         };
 
-//        timer.schedule (hourlyTask, 0l, 1000*60*60);
-        timer.schedule (hourlyTask, 0l, 5000);
+        timer.schedule (hourlyTask, 0l, 1000*60*60);
+//        timer.schedule (hourlyTask, 0l, 5000);
 
 
 //        System.out.println(apartmentsUrl);
