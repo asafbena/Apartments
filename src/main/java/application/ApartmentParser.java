@@ -79,7 +79,9 @@
             String apartmentDay = apartmentSplit[2];
             String startDateYear = startDateSplit[0];
             String startDateMonth = startDateSplit[1];
-            String startDateDay = startDateSplit[2];
+            String startDateDay = String.valueOf(Integer.valueOf(startDateSplit[2]) - 1);
+            if(startDateDay.length() == 1)
+                startDateDay = "0" + startDateDay;
 
             if(apartmentYear.compareTo(startDateYear) > 0)
                 return true;

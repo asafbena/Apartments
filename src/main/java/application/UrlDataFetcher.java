@@ -87,7 +87,7 @@ public class UrlDataFetcher {
         try {
             Robot robot = new Robot();
             desktop.browse(new URI(areaLink));
-            Thread.sleep(5000);
+            Thread.sleep(6000);
             robot.keyPress(KeyEvent.VK_META);
             Thread.sleep(100);
             robot.keyPress(KeyEvent.VK_S);
